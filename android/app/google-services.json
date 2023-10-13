@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "617534986582",
+    "project_id": "pfa-pentia-chat-app",
+    "storage_bucket": "pfa-pentia-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617534986582:android:fd5b753a211c7631511ef7",
+        "android_client_info": {
+          "package_name": "com.rn_chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617534986582-39v46rf3h2ddpgnr5i3nffg9tasvvcdv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rn_chat_app",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "617534986582-p1rb11vrfhpk0p5ta93am6pr0e0khm35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5OZ-svK7O2NaSpQKDtwwAPVEQ8tLZUOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617534986582-p1rb11vrfhpk0p5ta93am6pr0e0khm35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
