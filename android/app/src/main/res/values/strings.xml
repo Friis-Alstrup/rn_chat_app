@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">rn_chat_app</string>
+    <string name="facebook_app_id">1044160807007161</string>
+    <string name="facebook_client_token">8515966432960e1b2cadc481e8eff87e</string>
 </resources>
