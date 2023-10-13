@@ -3,13 +3,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import ChatListScreen from '../screens/ChatListScreen';
+import {StackParamList} from '../types/StackParamList';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<StackParamList>();
 
 export default function StackNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="ChatList"
       screenOptions={{
         headerStyle: {
           backgroundColor: '#e85c54',
@@ -23,7 +24,11 @@ export default function StackNavigator() {
         component={LoginScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="ChatList" component={ChatListScreen} />
+      <Stack.Screen
+        name="ChatList"
+        component={ChatListScreen}
+        options={{title: 'Chat rum'}}
+      />
       <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
     </Stack.Navigator>
   );
