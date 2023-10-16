@@ -20,6 +20,7 @@
     "react-native-fbsdk-next": "^12.1.0",
     "react-native-safe-area-context": "^4.7.2",
     "react-native-screens": "^3.25.0",
+    "react-native-splash-screen": "^3.3.0",
     "zustand": "^4.4.3"
   },
   "devDependencies": {
