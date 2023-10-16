@@ -4,6 +4,7 @@ import LoginScreen from '../screens/LoginScreen';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import ChatListScreen from '../screens/ChatListScreen';
 import {StackParamList} from '../types/StackParamList';
+import PressableLogoutIcon from '../components/PressableLogoutIcon';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 
@@ -27,7 +28,11 @@ export default function StackNavigator() {
       <Stack.Screen
         name="ChatList"
         component={ChatListScreen}
-        options={{title: 'Chat rum'}}
+        options={() => ({
+          headerTitle: 'Pentia Chat',
+          // eslint-disable-next-line react/no-unstable-nested-components
+          headerRight: () => <PressableLogoutIcon />,
+        })}
       />
       <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
     </Stack.Navigator>
