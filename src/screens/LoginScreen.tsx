@@ -9,7 +9,7 @@ export default function LoginScreen({navigation}: ScreenProp): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerSection}>
-        <Text style={styles.title}>Chat</Text>
+        <Text style={styles.title}>Pentia Chat</Text>
       </View>
       <View style={styles.buttonSection}>
         <Button
