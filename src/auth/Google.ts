@@ -2,6 +2,7 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import useAuthStore from '../stores/useAuthStore';
 import {NavigationProp} from '@react-navigation/native';
+import {createErrorAlert} from '../helpers/AlertHelper';
 
 GoogleSignin.configure({
   webClientId:
@@ -26,9 +27,11 @@ export default async function onGoogleButtonPress(
     })
     .catch(error => {
       if (error.code === 'auth/account-exists-with-different-credential') {
-        // TODO: show dialog if emails is in use.
+        createErrorAlert(
+          'Der findes allerede en konto med denne email-adresse, via en anden udbyder.',
+        );
       } else {
-        // TODO: Show dialog with error message.
+        createErrorAlert(error.message);
       }
     });
 }

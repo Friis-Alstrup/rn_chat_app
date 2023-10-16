@@ -2,6 +2,7 @@ import auth from '@react-native-firebase/auth';
 import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
 import useAuthStore from '../stores/useAuthStore';
 import {NavigationProp} from '@react-navigation/native';
+import {createErrorAlert} from '../helpers/AlertHelper';
 
 export default async function onFacebookButtonPress(
   navigation: NavigationProp<any>,
@@ -27,9 +28,11 @@ export default async function onFacebookButtonPress(
       })
       .catch(error => {
         if (error.code === 'auth/account-exists-with-different-credential') {
-          // TODO: show dialog if emails is in use.
+          createErrorAlert(
+            'Der findes allerede en konto med denne email-adresse, via en anden udbyder.',
+          );
         } else {
-          // TODO: Show dialog with error message.
+          createErrorAlert(error.message);
         }
       });
   }
