@@ -19,6 +19,7 @@ export default function StackNavigator() {
         headerTitleStyle: {
           color: '#ffffff',
         },
+        headerTintColor: '#ffffff',
       }}>
       <Stack.Screen
         name="Login"
