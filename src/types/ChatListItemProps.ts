@@ -1,5 +1,7 @@
+import {NavigationProp} from '@react-navigation/native';
+import {ChatRoom} from '../interfaces/ChatRoom';
+
 export type ChatListItemProps = {
-  chatRoom: string;
-  sender: string;
-  message: string;
+  chatRoom: ChatRoom;
+  navigation: NavigationProp<any>;
 };
