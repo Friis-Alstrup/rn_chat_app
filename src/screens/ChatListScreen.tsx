@@ -1,41 +1,41 @@
-import {FlatList, SafeAreaView} from 'react-native';
-import React from 'react';
+import {FlatList, RefreshControl, SafeAreaView} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import useAuth from '../hooks/useAuth';
 import {ScreenProp} from '../types/ScreenProp';
 import ChatListItem from '../components/ChatListItem';
-
-const DATA = [
-  {
-    chatRoom: 'Test',
-    sender: 'Person 1',
-    message:
-      'askldl asdklæ askldklæ akldsla sdlæ asdjkaskljdjkla sdkjlakjlsdklj adl',
-  },
-  {
-    chatRoom: 'Development',
-    sender: 'Person 2',
-    message: 'askldl asdklæ askldklæ akldsla sdlæ',
-  },
-  {
-    chatRoom: 'Off-Topic',
-    sender: 'Person 2',
-    message: 'askldl asdklæ askldklæ akldsla sdlæ',
-  },
-];
+import {getAllChatRooms} from '../services/GoogleFirestoreService';
+import {ChatRoom} from '../interfaces/ChatRoom';
 
 export default function ChatListScreen({navigation}: ScreenProp): JSX.Element {
   useAuth(navigation);
+
+  const [chatRooms, SetChatRooms] = useState<ChatRoom[]>([]);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const getData = async () => {
+    SetChatRooms(await getAllChatRooms());
+  };
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await getData();
+    setRefreshing(false);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <SafeAreaView>
       <FlatList
-        data={DATA}
+        data={chatRooms}
         renderItem={({item}) => (
-          <ChatListItem
-            chatRoom={item.chatRoom}
-            sender={item.sender}
-            message={item.message}
-          />
+          <ChatListItem chatRoom={item} navigation={navigation} />
         )}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
       />
     </SafeAreaView>
   );
