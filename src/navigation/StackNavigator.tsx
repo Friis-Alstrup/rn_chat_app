@@ -16,7 +16,7 @@ export default function StackNavigator() {
       initialRouteName="ChatList"
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#e85c54',
+          backgroundColor: '#173448',
         },
         headerTitleStyle: {
           color: '#ffffff',
