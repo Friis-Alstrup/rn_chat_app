@@ -1,5 +1,5 @@
 export type StackParamList = {
   Login: undefined;
   ChatList: undefined;
-  ChatRoom: {chatRoomId: string};
+  ChatRoom: {name: string};
 };
