@@ -1,6 +1,5 @@
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-import useAuthStore from '../stores/useAuthStore';
 import {NavigationProp} from '@react-navigation/native';
 import {createErrorAlert} from '../helpers/AlertHelper';
 
@@ -18,10 +17,7 @@ export default async function onGoogleButtonPress(
 
   await auth()
     .signInWithCredential(googleCredential)
-    .then(userCredentials => {
-      // Add UserCredentials to AuthStore
-      useAuthStore.getState().login(userCredentials.user);
-
+    .then(() => {
       // Navigate user to ChatList Screen
       navigation.navigate('ChatList');
     })
