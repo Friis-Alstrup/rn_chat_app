@@ -1,7 +1,10 @@
-import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
-
 export interface Message {
-  message: string;
-  sender: string;
-  timestamp: FirebaseFirestoreTypes.Timestamp;
+  _id: string;
+  text: string;
+  createdAt: Date;
+  user: {
+    _id: string;
+    name: string;
+    avatar: string;
+  };
 }
