@@ -5,22 +5,31 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function ChatListItem({
   chatRoom,
-  sender,
-  message,
+  navigation,
 }: ChatListItemProps) {
   return (
-    <Pressable>
+    <Pressable
+      onPress={() =>
+        navigation.navigate('ChatRoom', {
+          chatRoomId: chatRoom.chatRoomId,
+          name: chatRoom.name,
+          description: chatRoom.description,
+        })
+      }
+      style={({pressed}) => [
+        {
+          backgroundColor: pressed ? 'rgb(230, 230, 230)' : 'white',
+        },
+      ]}>
       <View style={styles.item}>
         <View style={styles.avatar}>
           <Text style={styles.avatarText}>
-            {chatRoom.substring(0, 1).toUpperCase()}
+            {chatRoom.name.substring(0, 1).toUpperCase()}
           </Text>
         </View>
         <View>
-          <Text style={styles.itemTitle}>{chatRoom}</Text>
-          <Text style={styles.itemMessage}>
-            {sender}: {message}
-          </Text>
+          <Text style={styles.itemTitle}>{chatRoom.name}</Text>
+          <Text style={styles.itemMessage}>{chatRoom.description}</Text>
         </View>
         <View>
           <Icon name="chevron-right" size={25} color="#252525" />
@@ -53,7 +62,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 45 / 2,
-    backgroundColor: '#b44741',
+    backgroundColor: '#122c3d',
     alignItems: 'center',
     justifyContent: 'center',
   },

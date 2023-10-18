@@ -6,19 +6,21 @@ import ChatListScreen from '../screens/ChatListScreen';
 import {StackParamList} from '../types/StackParamList';
 import PressableLogoutIcon from '../components/PressableLogoutIcon';
 
-const Stack = createNativeStackNavigator<StackParamList>();
-
 export default function StackNavigator() {
+  const logoutIcon = () => <PressableLogoutIcon />;
+  const Stack = createNativeStackNavigator<StackParamList>();
+
   return (
     <Stack.Navigator
       initialRouteName="ChatList"
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#e85c54',
+          backgroundColor: '#173448',
         },
         headerTitleStyle: {
           color: '#ffffff',
         },
+        headerTintColor: '#ffffff',
       }}>
       <Stack.Screen
         name="Login"
@@ -30,11 +32,14 @@ export default function StackNavigator() {
         component={ChatListScreen}
         options={() => ({
           headerTitle: 'Pentia Chat',
-          // eslint-disable-next-line react/no-unstable-nested-components
-          headerRight: () => <PressableLogoutIcon />,
+          headerRight: () => logoutIcon(),
         })}
       />
-      <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
+      <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options={({route}) => ({title: route.params.name})}
+      />
     </Stack.Navigator>
   );
 }
