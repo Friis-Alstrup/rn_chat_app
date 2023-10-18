@@ -3,27 +3,27 @@ import React, {useEffect, useState} from 'react';
 import useAuth from '../hooks/useAuth';
 import {ScreenProp} from '../types/ScreenProp';
 import ChatListItem from '../components/ChatListItem';
-import {getAllChatRooms} from '../services/GoogleFirestoreService';
 import {ChatRoom} from '../interfaces/ChatRoom';
+import {loadAllChatRooms} from '../services/ChatService';
 
 export default function ChatListScreen({navigation}: ScreenProp): JSX.Element {
   useAuth(navigation);
 
-  const [chatRooms, SetChatRooms] = useState<ChatRoom[]>([]);
+  const [chatRooms, setChatRooms] = useState<ChatRoom[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
-  const getData = async () => {
-    SetChatRooms(await getAllChatRooms());
+  const getAllChatRooms = async () => {
+    setChatRooms(await loadAllChatRooms());
   };
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await getData();
+    await getAllChatRooms();
     setRefreshing(false);
   };
 
   useEffect(() => {
-    getData();
+    getAllChatRooms();
   }, []);
 
   return (
