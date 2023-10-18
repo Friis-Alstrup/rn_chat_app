@@ -6,11 +6,10 @@ import ChatListScreen from '../screens/ChatListScreen';
 import {StackParamList} from '../types/StackParamList';
 import PressableLogoutIcon from '../components/PressableLogoutIcon';
 
-const logoutIcon = () => <PressableLogoutIcon />;
-
-const Stack = createNativeStackNavigator<StackParamList>();
-
 export default function StackNavigator() {
+  const logoutIcon = () => <PressableLogoutIcon />;
+  const Stack = createNativeStackNavigator<StackParamList>();
+
   return (
     <Stack.Navigator
       initialRouteName="ChatList"
@@ -39,7 +38,7 @@ export default function StackNavigator() {
       <Stack.Screen
         name="ChatRoom"
         component={ChatRoomScreen}
-        options={({route}) => ({title: route.params.chatRoomId})}
+        options={({route}) => ({title: route.params.name})}
       />
     </Stack.Navigator>
   );
