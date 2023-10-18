@@ -12,7 +12,7 @@ export default function ChatListItem({
       onPress={() =>
         navigation.navigate('ChatRoom', {
           chatRoomId: chatRoom.chatRoomId,
-          title: chatRoom.title,
+          name: chatRoom.name,
           description: chatRoom.description,
         })
       }
@@ -24,11 +24,11 @@ export default function ChatListItem({
       <View style={styles.item}>
         <View style={styles.avatar}>
           <Text style={styles.avatarText}>
-            {chatRoom.title.substring(0, 1).toUpperCase()}
+            {chatRoom.name.substring(0, 1).toUpperCase()}
           </Text>
         </View>
         <View>
-          <Text style={styles.itemTitle}>{chatRoom.title}</Text>
+          <Text style={styles.itemTitle}>{chatRoom.name}</Text>
           <Text style={styles.itemMessage}>{chatRoom.description}</Text>
         </View>
         <View>
