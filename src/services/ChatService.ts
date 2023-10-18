@@ -65,17 +65,17 @@ export const loadMessages = (
     React.SetStateAction<FirebaseFirestoreTypes.DocumentData | undefined>
   >,
 ) => {
-  const query = chatRoomsCollection
+  let query = chatRoomsCollection
     .doc(chatRoomId)
     .collection('messages')
     .orderBy('createdAt', 'desc');
 
   if (lastDocument !== undefined) {
-    query.startAfter(lastDocument);
+    query = query.startAfter(lastDocument);
   }
 
-  const unsubscribe = query.limit(5).onSnapshot(querySnapshot => {
-    const messagesArray: IMessage[] = querySnapshot.docs.map(doc => {
+  const unsubscribe = query.limit(50).onSnapshot(querySnapshot => {
+    const newMessages: IMessage[] = querySnapshot.docs.map(doc => {
       const message = doc.data();
       return {
         _id: message._id,
@@ -89,7 +89,7 @@ export const loadMessages = (
       };
     });
 
-    setMessages(messagesArray);
+    setMessages(previousMessages => previousMessages.concat(newMessages));
 
     if (querySnapshot.docs.length > 0) {
       setLastDocument(querySnapshot.docs[querySnapshot.docs.length - 1]);
