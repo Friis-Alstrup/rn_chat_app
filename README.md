@@ -14,7 +14,7 @@ I was given this task to prove my skills in React Native.
 | Login screen | 🟩 | |
 | Chat rooms | 🟩 | |
 | Send and receive messages | 🟩 | |
-| Push functionality | 🟨 | Added listening for notifications and permissions alert. |
+| Push functionality | 🟨 | Added listening for notifications and permissions alert. (Backend needed for sendning notifications). |
 | Upload of images to chat room | 🟥 | Not met. |
 
 ### Dependecies
