@@ -1,6 +1,5 @@
-import {Text, StyleSheet, View, Button} from 'react-native';
+import {Text, StyleSheet, View, Button, SafeAreaView} from 'react-native';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import onGoogleButtonPress from '../auth/Google';
 import {ScreenProp} from '../types/ScreenProp';
 import onFacebookButtonPress from '../auth/Facebook';
