@@ -1,4 +1,4 @@
->🚧🚧 **Note**: This React Native application has been developed on a windows PC. Therefore, I have not been able to configure and optimize it for IOS devices. Please test it with a **Android Emulator**. 
+>🚧🚧 **Note**: This React Native application has been developed on a windows PC. Therefore, I have not been able to configure and optimize it for IOS devices. Please test it with a **Android Emulator** with the Android API 33 (Android 13). 
 
 # Introduction
 
