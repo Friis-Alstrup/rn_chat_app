@@ -6,6 +6,10 @@ import {ChatRoom} from '../interfaces/ChatRoom';
 import useAuth from '../hooks/useAuth';
 import auth from '@react-native-firebase/auth';
 import {loadMessages, sendMessage} from '../services/ChatService';
+import {
+  checkIfFCMTokenExists,
+  getFCMToken,
+} from '../services/NotificationService';
 
 export default function ChatRoomScreen({
   route,
@@ -20,7 +24,7 @@ export default function ChatRoomScreen({
   >(undefined);
   const [messages, setMessages] = useState<IMessage[]>([]);
 
-  const getMessages = () => {
+  const getMessages = async () => {
     const unsubscribe = loadMessages(
       chatRoomId,
       lastDocument,
@@ -40,7 +44,12 @@ export default function ChatRoomScreen({
     );
   };
 
+  const checkToken = async () => {
+    checkIfFCMTokenExists(chatRoomId, await getFCMToken());
+  };
+
   useEffect(() => {
+    checkToken();
     getMessages();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
