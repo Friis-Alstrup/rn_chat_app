@@ -43,6 +43,15 @@ I have worked approximately ~32 hours on this project.
 | 19/10/23 | 4 hours |
 | 23/10/23 | 2 hours |
 
+# IOS is not supported
+
+This React Native application has been developed on a windows PC. Therefore, I have not been able to configure and optimize it for IOS devices.
+
+### List of needed configuration for it to work on IOS:
+
+- OAuth config
+- Splash screen
+- Notifications
 
 # Getting started
 
