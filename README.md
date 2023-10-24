@@ -14,7 +14,7 @@ I was given this task to prove my skills in React Native.
 | Login screen | 🟩 | |
 | Chat rooms | 🟩 | |
 | Send and receive messages | 🟩 | |
-| Push functionality | 🟨 | Added listening for notifications and permissions alert. |
+| Push functionality | 🟨 | Added listening for notifications and permissions alert. (Backend needed for sendning notifications). |
 | Upload of images to chat room | 🟥 | Not met. |
 
 ### Dependecies
@@ -23,9 +23,35 @@ I was given this task to prove my skills in React Native.
 - [@react-native-google-signin](https://www.npmjs.com/package/@react-native-google-signin/google-signin)
 - [react-native-fbsdk-next](https://www.npmjs.com/package/react-native-fbsdk-next)
 - [react-native-gifted-chat](https://www.npmjs.com/package/react-native-gifted-chat)
+- [react-native-push-notification](https://www.npmjs.com/package/react-native-push-notification)
 - [react-native-screens](https://www.npmjs.com/package/react-native-screens)
 - [react-native-splash-screen](https://www.npmjs.com/package/react-native-splash-screen)
 - [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons)
+
+# Effort / Work
+
+I have worked approximately ~32 hours on this project.
+
+### Overview
+
+| Date | hours |
+| --- | --- |
+| 13/10/23 | 10 hours |
+| 16/10/23 | 6 hours |
+| 17/10/23 | 8 hours |
+| 18/10/23 | 2 hours |
+| 19/10/23 | 4 hours |
+| 23/10/23 | 2 hours |
+
+# IOS is not supported
+
+This React Native application has been developed on a windows PC. Therefore, I have not been able to configure and optimize it for IOS devices.
+
+### List of needed configuration for it to work on IOS:
+
+- OAuth config
+- Splash screen
+- Notifications
 
 # Getting started
 
